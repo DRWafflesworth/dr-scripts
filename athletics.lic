@@ -18,9 +18,6 @@ class Athletics
     @swimming_target = get_data('athletics').swimming_options[@settings.swimming_target]
     have_climbing_rope = get_settings.have_climbing_rope
     @outdoorsmanship_rooms = get_settings.athletics_outdoorsmanship_rooms
-
-    get_athletics_items
-
     start_exp = DRSkill.getxp('Athletics')
     @end_exp = [start_exp + 15, 29].min
 
@@ -58,20 +55,6 @@ class Athletics
     elsif @settings.hometown == 'Ratha'
       ratha_athletics
     end
-
-    stow_athletics_items
-  end
-
-  def get_athletics_items
-    return if @settings.held_athletics_items.empty?
-
-    @settings.held_athletics_items.each { |item| bput("get my #{item}", 'You', 'What were') }
-  end
-
-  def stow_athletics_items
-    return if @settings.held_athletics_items.empty?
-
-    @settings.held_athletics_items.each { |item| bput("stow my #{item}", 'You', 'Stow what?') }
   end
 
   def override_location_and_practice(place)
@@ -368,9 +351,7 @@ class Athletics
         walk_to(19_464)
         break if done_training?
         walk_to(@outdoorsmanship_rooms.sample) unless @outdoorsmanship_rooms.empty?
-        stow_athletics_items
         wait_for_script_to_complete('outdoorsmanship', ['4'])
-        get_athletics_items
       end
     else
       climb_wyvern
@@ -385,9 +366,7 @@ class Athletics
       walk_to(2900)
       break if done_training?
       walk_to(@outdoorsmanship_rooms.sample) unless @outdoorsmanship_rooms.empty?
-      stow_athletics_items
       wait_for_script_to_complete('outdoorsmanship', ['4'])
-      get_athletics_items
     end
   end
 
@@ -404,9 +383,7 @@ class Athletics
       walk_to(6443)
       break if done_training?
       walk_to(@outdoorsmanship_rooms.sample) unless @outdoorsmanship_rooms.empty?
-      stow_athletics_items
       wait_for_script_to_complete('outdoorsmanship', ['3'])
-      get_athletics_items
     end
   end
 
@@ -417,9 +394,7 @@ class Athletics
       walk_to(6154)
       break if done_training?
       walk_to(@outdoorsmanship_rooms.sample) unless @outdoorsmanship_rooms.empty?
-      stow_athletics_items
       wait_for_script_to_complete('outdoorsmanship', ['4'])
-      get_athletics_items
     end
   end
 end

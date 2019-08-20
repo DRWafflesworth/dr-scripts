@@ -31,8 +31,7 @@ class Lockbox
     else
       case bput("get my #{@box}", 'You get a', 'What were')
       when 'What were'
-        echo('Lockbox not found, reverting to pick.lic.')
-        wait_for_script_to_complete('pick')
+        echo('Lockbox not found, exiting.')
         exit
       end
     end
@@ -45,9 +44,8 @@ class Lockbox
     if result =~ /it opens|isn't locked/
       bput("lock my #{@box}", 'You quickly lock', 'already locked')
     elsif result =~ /The lock feels warm/
-      echo('Charges used for the day, falling back to pick.lic.')
+      echo('Charges used for the day, exiting.')
       cleanup
-      wait_for_script_to_complete('pick')
       exit
     end
   end

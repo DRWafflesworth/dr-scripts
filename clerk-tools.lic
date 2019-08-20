@@ -51,15 +51,15 @@ class Clerk
     repairnpc = crafting_data[area][hometown]['repair-npc']
 
     if action == 'store'
-      store_tools(tools, roomnumber)
+      storeTools(tools, roomnumber)
     elsif action = 'get'
-      get_tools(tools, roomnumber, repairnpc)
+      getTools(tools, roomnumber, repairnpc)
     else
       echo 'Unknown action'
     end
   end
 
-  def get_tools(tools, roomnumber, repairnpc)
+  def getTools(tools, roomnumber, repairnpc)
     DRCT.walk_to(roomnumber)
     tools.each do |tool|
       case bput("ask #{repairnpc} for #{tool}", 'Ah, yes, we have one of your tools like that', 'Ah, yes, we have several of your tools like that', "It doesn't look like we have anything like that")
@@ -71,7 +71,7 @@ class Clerk
     end
   end
 
-  def store_tools(tools, roomnumber)
+  def storeTools(tools, roomnumber)
     echo roomnumber
     DRCT.walk_to(roomnumber)
     tools.each do |tool|
@@ -82,6 +82,10 @@ class Clerk
       end
     end
   end
+
+  def stowTool(tool); end
+
+  def retreiveTool(tool); end
 end
 
 Clerk.new

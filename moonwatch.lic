@@ -5,7 +5,6 @@
 custom_require.call(%w[common])
 
 no_pause_all
-no_kill_all
 
 arg_definitions = [
   [

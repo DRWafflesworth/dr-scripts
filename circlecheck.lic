@@ -179,7 +179,7 @@ $GuildReqs = {
       ]
 
     },
-    restricted: ['Sorcery', 'Offhand Weapon']
+    restricted: %w[Sorcery]
   },
   'Warrior Mage' => {
     specific_reqs: {
@@ -219,7 +219,7 @@ $GuildReqs = {
 
     },
     hard_reqs: %w[Summoning],
-    restricted: ['Sorcery', 'Thievery', 'Offhand Weapon']
+    restricted: %w[Sorcery Thievery]
   },
   'Paladin' => {
     specific_reqs: {
@@ -258,7 +258,7 @@ $GuildReqs = {
       ]
     },
     hard_reqs: %w[Conviction Evasion],
-    restricted: ['Sorcery', 'Thievery', 'Offhand Weapon']
+    restricted: %w[Sorcery Thievery]
   },
   'Cleric' => {
     specific_reqs: {
@@ -297,7 +297,7 @@ $GuildReqs = {
 
     },
     hard_reqs: %w[Theurgy],
-    restricted: ['Sorcery', 'Thievery', 'Offhand Weapon']
+    restricted: %w[Sorcery Thievery]
   },
 
   'Barbarian' => {
@@ -446,8 +446,7 @@ $GuildReqs = {
         [[10, 2], [30, 3], [70, 3], [100, 4], [150, 4], [200, 10]]
       ]
     },
-    hard_reqs: ['Performance'],
-    restricted: ['Offhand Weapon']
+    hard_reqs: ['Performance']
   },
 
   'Trader' => {
@@ -481,7 +480,7 @@ $GuildReqs = {
 
     },
     hard_reqs: %w[Appraisal Trading],
-    restricted: ['Offhand Weapon']
+    restricted: []
   }
 }
 
